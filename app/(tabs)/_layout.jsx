@@ -9,17 +9,17 @@ export default function TabLayout() {
     <Tabs screenOptions={{headerShown:false}}>
         <Tabs.Screen name='home'
         options={{
-            tabBarLabel:'Home',
+            tabBarLabel:'Trang chủ',
             tabBarIcon:({color})=><Ionicons name='home'size={24} color={color}/>
         }}/>
         <Tabs.Screen name='explore'
            options={{
-            tabBarLabel:'Explore',
+            tabBarLabel:'Báo cáo',
             tabBarIcon:({color})=><Ionicons name='search'size={24} color={color}/>
         }}/>
         <Tabs.Screen name='profile'
            options={{
-            tabBarLabel:'Profile',
+            tabBarLabel:'Cá nhân',
             tabBarIcon:({color})=><Ionicons name='people-circle'size={24} color={color}/>
         }}/>
     </Tabs>

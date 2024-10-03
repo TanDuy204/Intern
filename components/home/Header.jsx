@@ -12,7 +12,10 @@ export default function Header() {
             backgroundColor: '#6666FF',
             flexDirection: 'row', // Đặt hướng dòng cho View chính
             justifyContent: 'space-between', // Đẩy các phần tử sang hai bên
-            alignItems: 'center' // Căn giữa theo chiều dọc
+            alignItems: 'center', // Căn giữa theo chiều dọc
+            borderBottomLeftRadius: 20,  // Bo góc dưới bên trái
+            borderBottomRightRadius: 20, // Bo góc dưới bên phải
+            height:170
         }}>
             <View style={{
                 display: 'flex',
@@ -25,7 +28,9 @@ export default function Header() {
                     style={{
                         width: 50,
                         height: 50,
-                        borderRadius: 25 // Hình tròn
+                        borderRadius: 25, // Hình tròn
+                        
+                        
                     }} 
                 />
                 <View>
