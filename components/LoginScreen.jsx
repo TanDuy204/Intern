@@ -50,7 +50,7 @@ export default function LoginScreen() {
 }
 const styles = StyleSheet.create({
     btn:{
-        backgroundColor:'#00FFFF',
+        backgroundColor:'#086db5',
         padding:16,
         borderRadius:19,
         marginTop:40

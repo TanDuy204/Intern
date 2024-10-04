@@ -1,12 +1,16 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { Tabs } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 import Octicons from '@expo/vector-icons/Octicons';
 
+
+
 export default function TabLayout() {
+ 
   return (
+  
     <Tabs screenOptions={{headerShown:false}}>
         <Tabs.Screen name='home'
         options={{
