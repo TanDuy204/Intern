@@ -9,7 +9,7 @@ export default function Header() {
         <View style={{
             padding: 20,
             paddingTop: 35,
-            backgroundColor: '#6666FF',
+            backgroundColor: '#086db5',
             flexDirection: 'row', // Đặt hướng dòng cho View chính
             justifyContent: 'space-between', // Đẩy các phần tử sang hai bên
             alignItems: 'center', // Căn giữa theo chiều dọc
@@ -46,7 +46,7 @@ export default function Header() {
             </View>
             {/* Ảnh login di chuyển sang bên phải */}
             <Image
-                source={require('./../../assets/images/login.png')} // Căn chỉnh đường dẫn cho đúng
+                source={require('./../../assets/images/logo.png')} // Căn chỉnh đường dẫn cho đúng
                 style={{ width: 60, height: 60 }} 
             />
         </View>

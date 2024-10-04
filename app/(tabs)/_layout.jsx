@@ -3,6 +3,7 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
+import Octicons from '@expo/vector-icons/Octicons';
 
 export default function TabLayout() {
   return (
@@ -12,11 +13,12 @@ export default function TabLayout() {
             tabBarLabel:'Trang chủ',
             tabBarIcon:({color})=><Ionicons name='home'size={24} color={color}/>
         }}/>
-        <Tabs.Screen name='explore'
+        <Tabs.Screen name='duan'
            options={{
-            tabBarLabel:'Báo cáo',
-            tabBarIcon:({color})=><Ionicons name='search'size={24} color={color}/>
+            tabBarLabel:'Dự án của tôi',
+            tabBarIcon:({color})=><Octicons name="project" size={24} color={color}/>
         }}/>
+        
         <Tabs.Screen name='profile'
            options={{
             tabBarLabel:'Cá nhân',
