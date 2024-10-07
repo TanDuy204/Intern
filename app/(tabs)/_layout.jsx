@@ -11,13 +11,14 @@ export default function TabLayout() {
  
   return (
   
-    <Tabs screenOptions={{headerShown:false}}>
+    <Tabs screenOptions={{headerShown:false }}>
         <Tabs.Screen name='home'
         options={{
             tabBarLabel:'Trang chủ',
             tabBarIcon:({color})=><Ionicons name='home'size={24} color={color}/>
         }}/>
-        <Tabs.Screen name='duan'
+        <Tabs.Screen 
+        name='duan'
            options={{
             tabBarLabel:'Dự án của tôi',
             tabBarIcon:({color})=><Octicons name="project" size={24} color={color}/>

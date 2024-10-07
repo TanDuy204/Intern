@@ -4,7 +4,7 @@ import { useLocalSearchParams, useNavigation } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProjectDetail() {
-  const { title, description, about, image, startDate, endDate } = useLocalSearchParams();
+  const { title, description, about, image, startDate, endDate, status } = useLocalSearchParams();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function ProjectDetail() {
   }, [navigation, title]);
 
   const handleJoinProject = async()=>{
-    const newProject = {title, description, about, image, startDate, endDate };
+    const newProject = {title, description, about, image, startDate, endDate, status };
 
     try{
       //lấy danh sách đã lưu từ ayncStrorage
