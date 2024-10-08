@@ -8,8 +8,8 @@ export default function home() {
   return (
     <ScrollView>
       <Header />
-      <Sliders/>
-      <Listview/>
+      <Sliders />
+      <Listview />
     </ScrollView>
   )
 }

@@ -15,8 +15,8 @@ export default function RootLayout() {
       <SignedOut>
         <LoginScreen></LoginScreen>
       </SignedOut>
-      
-      
+
+
 
     </ClerkProvider>
   );

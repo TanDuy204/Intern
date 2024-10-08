@@ -4,7 +4,7 @@ import { useLocalSearchParams, useNavigation } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProjectDetail() {
-  const { title, description, about, image, startDate, endDate } = useLocalSearchParams();
+  const { title, description, about, image, startDate, endDate,status } = useLocalSearchParams();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -14,10 +14,10 @@ export default function ProjectDetail() {
     });
   }, [navigation, title]);
 
-  const handleJoinProject = async()=>{
-    const newProject = {title, description, about, image, startDate, endDate };
+  const handleJoinProject = async () => {
+    const newProject = { title, description, about, image, startDate, endDate, status };
 
-    try{
+    try {
       //lấy danh sách đã lưu từ ayncStrorage
       const existingProject = await AsyncStorage.getItem('myProject');
       const projects = existingProject ? JSON.parse(existingProject) : [];
@@ -28,7 +28,7 @@ export default function ProjectDetail() {
       //lưu lại danh sách các dự án vào ayncStrorage
       await AsyncStorage.setItem('myProject', JSON.stringify(projects));
       alert('Bạn đã tham gia dự án thành công')
-    }catch(error){
+    } catch (error) {
       console.log('Lỗi khi vào dự án', error);
       alert('đã xảy ra lỗi khi lưu dự án')
     }

@@ -11,8 +11,9 @@ const projects = [
         title: 'Dự Án Phân Loại Chất Thải',
         startDate: '04/10/2024',
         endDate: '10/12/2024',
+        status: 'Đang tiến hành',
         description: 'Một ứng dụng giúp người dùng phân loại rác thải sinh hoạt.',
-        about:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        about: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         image: require('../../assets/images/pin.png'),
       },
       {
@@ -20,22 +21,20 @@ const projects = [
         title: 'Ứng Dụng Quản Lý Chi Tiêu',
         startDate: '04/10/2024',
         endDate: '10/12/2024',
-        about:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        status: 'Đã xong',
+        about: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         description: 'Ứng dụng giúp người dùng theo dõi và quản lý chi tiêu hàng tháng.',
+
         image: require('../../assets/images/ctrsh.png'),
-      },
-    ],
-  },
-  {
-    title: 'Các Dự Án Khác',
-    data: [
-      {
+      }, {
         id: 3,
         title: 'Ứng Dụng Quản Lý Chi Tiêu 2',
         startDate: '04/10/2024',
         endDate: '10/12/2024',
-        about:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        about: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        status: 'Đang tiến hành',
         description: 'Ứng dụng giúp người dùng theo dõi và quản lý chi tiêu hàng tháng.',
+
         image: require('../../assets/images/ctrsh.png'),
       },
       {
@@ -43,8 +42,10 @@ const projects = [
         title: 'Ứng Dụng Quản Lý Chi Tiêu 3',
         startDate: '04/10/2024',
         endDate: '10/12/2024',
-        about:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        status: 'Đang tiến hành',
+        about: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         description: 'Ứng dụng giúp người dùng theo dõi và quản lý chi tiêu hàng tháng.',
+
         image: require('../../assets/images/ctrsh.png'),
       },
     ],
@@ -54,7 +55,7 @@ const projects = [
 const ProjectItem = ({ item }) => {
   const router = useRouter();
   return (
-    <TouchableOpacity onPress={() => router.push(`/project/${item.id}?title=${item.title}&startDate=${item.startDate}&about=${item.about}&endDate=${item.endDate}&description=${item.description}&image=${item.image}`)}>
+    <TouchableOpacity onPress={() => router.push(`/project/${item.id}?title=${item.title}&startDate=${item.startDate}&status=${item.status}&about=${item.about}&endDate=${item.endDate}&description=${item.description}&image=${item.image}`)}>
       <View style={styles.item}>
         <Image source={item.image} style={styles.image} />
         <View style={styles.textContainer}>
@@ -79,6 +80,7 @@ export default function Listview() {
         contentContainerStyle={styles.flatListContent}
         stickySectionHeadersEnabled={false}
       />
+
     </View>
   );
 }

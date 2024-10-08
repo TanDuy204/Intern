@@ -15,7 +15,7 @@ export default function Header() {
             alignItems: 'center', // Căn giữa theo chiều dọc
             borderBottomLeftRadius: 20,  // Bo góc dưới bên trái
             borderBottomRightRadius: 20, // Bo góc dưới bên phải
-            height:170
+            height: 170
         }}>
             <View style={{
                 display: 'flex',
@@ -23,15 +23,15 @@ export default function Header() {
                 alignItems: 'center',
                 gap: 10
             }}>
-                <Image 
-                    source={{ uri: user?.imageUrl }} 
+                <Image
+                    source={{ uri: user?.imageUrl }}
                     style={{
                         width: 50,
                         height: 50,
                         borderRadius: 25, // Hình tròn
-                        
-                        
-                    }} 
+
+
+                    }}
                 />
                 <View>
                     <Text style={{ color: '#fff' }}>Welcome,</Text>
@@ -47,7 +47,7 @@ export default function Header() {
             {/* Ảnh login di chuyển sang bên phải */}
             <Image
                 source={require('./../../assets/images/logo.png')} // Căn chỉnh đường dẫn cho đúng
-                style={{ width: 60, height: 60 }} 
+                style={{ width: 60, height: 60 }}
             />
         </View>
     );

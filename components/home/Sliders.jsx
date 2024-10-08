@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'cover',
     borderRadius: 10,
-    borderWidth:1,
-    borderColor:'black'
+    borderWidth: 1,
+    borderColor: 'black'
   },
 });
