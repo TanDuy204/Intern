@@ -6,7 +6,7 @@ import { useRouter } from 'expo-router';
 
 export default function DuAnScreen() {
   const [projects, setProjects] = useState([]);
-  const [reload, setReload] = useState(false); // State để theo dõi reload
+  
   const route = useRouter();
 
   useEffect(() => {
@@ -21,14 +21,14 @@ export default function DuAnScreen() {
       }
     };
     fetchProjects();
-  }, [reload]); // Reload khi state reload thay đổi
+  }, []);
 
   const deleteProject = async (id) => {
     try {
       const updatedProjects = projects.filter((project, index) => index !== id);
       setProjects(updatedProjects);
       await AsyncStorage.setItem('myProject', JSON.stringify(updatedProjects));
-      setReload(!reload); // Kích hoạt reload
+      setReload(); 
     } catch (error) {
       console.log('Lỗi khi xóa dự án', error);
     }
@@ -36,7 +36,8 @@ export default function DuAnScreen() {
 
   const renderRightActions = (id) => (
     <TouchableOpacity
-      style={styles.deleteButton}
+      style={styles.deleteButton} 
+      //onPress={()=>deleteProject(id)}
       onPress={() => {
         Alert.alert(
           "Xóa dự án",
@@ -64,6 +65,8 @@ export default function DuAnScreen() {
         return '#f39c12'; // Màu vàng cho trạng thái "Đang tiến hành"
       case 'Đã xong':
         return '#27ae60'; // Màu xanh lá cây cho trạng thái "Đã xong"
+      default:
+        return '#333'; // Màu mặc định
     }
   };
 
@@ -74,6 +77,9 @@ export default function DuAnScreen() {
           <Image source={item.image} style={styles.projectImage} />
           <View style={styles.projectContent}>
             <Text style={styles.projectTitle}>{item.title}</Text>
+            <Text style = {styles.projecDate}>
+              {`Bắt đầu: ${item.startDate} - Kết thúc: ${item.endDate}`}
+            </Text>
             {/* Hiển thị trạng thái với màu sắc tùy theo trạng thái */}
             <Text style={[styles.statusText, { backgroundColor: getStatusColor(item.status) }]}>
               {item.status}
@@ -86,6 +92,9 @@ export default function DuAnScreen() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <View>
+        <Text style={styles.headerText}>Thông Tin Dự Án</Text>
+      </View>
       <View style={styles.container}>
         <FlatList
           data={projects}
@@ -101,44 +110,72 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff', 
+    height:45,
+    textAlign:'center',
+    backgroundColor: '#086db5', 
+    padding: 10,
+    fontWeight:'bold'
   },
   projectItem: {
     flexDirection: 'row',
     marginBottom: 16,
     padding: 16,
     backgroundColor: '#f8f8f8',
-    borderRadius: 8,
+    borderRadius: 12, 
+    shadowColor: '#000', 
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3, 
   },
   projectImage: {
-    width: 110,
-    height: 110,
-    borderRadius: 8,
+    width: 100,
+    height: 100,
+    borderRadius: 12,
     marginRight: 16,
+    borderColor: '#ddd',
+    borderWidth: 1,
   },
   projectContent: {
     flex: 1,
     justifyContent: 'center',
   },
   projectTitle: {
-    fontSize: 18,
+    fontSize: 20, // Tăng kích thước chữ tiêu đề
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#333', // Đổi màu chữ cho tiêu đề
   },
   deleteButton: {
-    backgroundColor: '#f43434',
+    backgroundColor: '#e74c3c', // Thay đổi màu nút xóa
     justifyContent: 'center',
     alignItems: 'center',
     width: 100,
-    height: 142,
+    height: 132,
     borderRadius: 8,
+    marginLeft: 10, // Thêm khoảng cách giữa nút và item
+  },
+  deleteButtonText: {
+    color: '#fff',
+    fontWeight: 'bold'
   },
   statusText: {
     color: '#fff',
-    backgroundColor: '#086db5', // Bạn có thể điều chỉnh màu sắc nếu muốn
+    backgroundColor: '#086db5', // Giữ nguyên màu
     paddingHorizontal: 12,
     paddingVertical: 6,
     alignSelf: 'flex-start',
-    fontSize: 14,
   },
+  projecDate:{
+    fontSize:13.2,
+    marginBottom: 8
+  }
 });

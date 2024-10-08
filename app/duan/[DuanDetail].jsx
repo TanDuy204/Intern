@@ -10,6 +10,7 @@ import {
     TouchableWithoutFeedback,
     Keyboard,
     ScrollView,
+    TouchableOpacity,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { IconButton } from 'react-native-paper';
@@ -20,7 +21,7 @@ export default function ReportProgressForm() {
     const [reportDate, setReportDate] = useState(moment().format('YYYY-MM-DD'));
     const [comment, setComment] = useState('');
     const [attachedImage, setAttachedImage] = useState(null);
-    const [attachedFiles, setAttachedFiles] = useState([]);
+    const [attachedFiles, setAttachedFiles] = useState(null);
     const [employeeName, setEmployeeName] = useState(''); // Thêm state cho tên nhân viên
     const [position, setPosition] = useState(''); // Thêm state cho vị trí
     const navigation = useNavigation();
@@ -135,7 +136,10 @@ export default function ReportProgressForm() {
                     <Text style={styles.uploadText}>Chọn tệp</Text>
                 </View>
 
-                <Button title="Gửi báo cáo" onPress={handleSubmit} />
+                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                    <Text style={styles.buttonText}>Gửi báo cáo</Text>
+                </TouchableOpacity>
+             
             </ScrollView>
         </TouchableWithoutFeedback>
     );
@@ -145,54 +149,73 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         padding: 16,
-        backgroundColor: '#fff',
+        backgroundColor: '#f9f9f9',  // Màu nền nhẹ nhàng hơn
     },
     form: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: 20,
+        marginBottom: 24,  // Tăng khoảng cách dưới tiêu đề
+        color: '#333',  // Màu chữ đậm hơn
     },
     label: {
         fontSize: 16,
-        marginVertical: 8,
+        marginVertical: 10,  // Tăng khoảng cách giữa các label
+        color: '#555',  // Màu chữ nhạt hơn cho label
     },
     input: {
         borderWidth: 1,
         borderColor: '#ccc',
-        borderRadius: 4,
-        padding: 8,
-        marginBottom: 16,
+        borderRadius: 8,  // Bo góc tròn hơn
+        padding: 12,  // Tăng padding để input trông thoáng hơn
+        marginBottom: 20,  // Tăng khoảng cách dưới
+        backgroundColor: '#fff',  // Màu nền trắng cho input
     },
     textArea: {
         borderWidth: 1,
         borderColor: '#ccc',
-        borderRadius: 4,
-        padding: 8,
-        marginBottom: 16,
-        height: 100,
+        borderRadius: 8,  // Bo góc tròn cho text area
+        padding: 12,  // Tăng padding để text area thoáng hơn
+        marginBottom: 20,
+        height: 100,  // Tăng chiều cao text area
+        backgroundColor: '#fff',
     },
     uploadContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginVertical: 16,
+        marginVertical: 6,
     },
     uploadText: {
-        marginLeft: 8,
+        marginLeft: 10,  // Tăng khoảng cách giữa icon và text
         fontSize: 16,
-        color: '#333',
+        color: '#086db5',  // Màu chữ cho text upload
     },
     attachedFile: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#f0f0f0',
-        borderRadius: 4,
+        backgroundColor: '#eef6ff',  // Màu nền nhạt cho phần đính kèm
+        borderRadius: 6,
         padding: 10,
-        marginVertical: 4,
+        marginVertical: 8,
+        borderColor: '#086db5',  // Viền màu xanh
+        borderWidth: 1,
     },
     attachedFileText: {
         marginLeft: 8,
         fontSize: 16,
-        color: '#333',
+        color: '#086db5',  // Màu xanh để đồng bộ với theme
+    },
+    button: {
+        backgroundColor: '#086db5',  // Màu xanh cho nút gửi
+        padding: 12,
+        borderRadius: 8,
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
 });
+
