@@ -101,6 +101,12 @@ export default function DuAnScreen() {
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
         />
+        <TouchableOpacity
+        style={styles.addButton}
+        onPress={()=> route.push(`/addProject/AddDuan`)}>
+          <Text style={styles.addButtonText}>+</Text>
+
+        </TouchableOpacity>
       </View>
     </GestureHandlerRootView>
   );
@@ -177,5 +183,27 @@ const styles = StyleSheet.create({
   projecDate:{
     fontSize:13.2,
     marginBottom: 8
-  }
+  },
+  addButton:{
+
+  position: 'absolute',
+    bottom: 30,
+    right: 30,
+    backgroundColor: '#086db5',
+    borderRadius: 50,
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5, // Hiệu ứng đổ bóng cho Android
+  },
+  addButtonText: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
 });

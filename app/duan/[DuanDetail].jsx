@@ -38,7 +38,7 @@ export default function ReportProgressForm() {
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
         if (permissionResult.granted === false) {
-            Alert.alert('Permission to access camera roll is required!');
+            Alert.alert('Cần phải có quyền truy cập vào thư viện ảnh!');
             return;
         }
 
@@ -84,7 +84,7 @@ export default function ReportProgressForm() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <ScrollView contentContainerStyle={styles.container}>
                 <Text style={styles.form}>Báo Cáo Tiến Độ Công Việc</Text>
-                
+
                 {/* Thêm trường Tên nhân viên */}
                 <Text style={styles.label}>Tên nhân viên:</Text>
                 <TextInput
@@ -139,7 +139,7 @@ export default function ReportProgressForm() {
                 <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                     <Text style={styles.buttonText}>Gửi báo cáo</Text>
                 </TouchableOpacity>
-             
+
             </ScrollView>
         </TouchableWithoutFeedback>
     );

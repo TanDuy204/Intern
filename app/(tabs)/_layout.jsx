@@ -4,6 +4,8 @@ import { Tabs } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 import Octicons from '@expo/vector-icons/Octicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 
 
@@ -21,6 +23,11 @@ export default function TabLayout() {
         options={{
           tabBarLabel: 'Dự án của tôi',
           tabBarIcon: ({ color }) => <Octicons name="project" size={24} color={color} />
+        }} />
+        <Tabs.Screen name='todo'
+        options={{
+          tabBarLabel: 'To-Do',
+          tabBarIcon: ({ color }) => <Icon name="checklist" size={24} color={color} />
         }} />
 
       <Tabs.Screen name='profile'
